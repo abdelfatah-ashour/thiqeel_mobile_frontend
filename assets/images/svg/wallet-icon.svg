@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+    <path data-name="Rectangle 1174" style="fill:none" d="M0 0h32v32H0z"/>
+    <g data-name="Icon feather-credit-card">
+        <path data-name="Path 3266" d="M4.069 6h23.126a2.569 2.569 0 0 1 2.569 2.569v15.417a2.569 2.569 0 0 1-2.569 2.569H4.069A2.569 2.569 0 0 1 1.5 23.986V8.569A2.569 2.569 0 0 1 4.069 6z" transform="translate(.5)" style="stroke:#9a9a9a;stroke-linecap:round;stroke-linejoin:round;stroke-width:3px;fill:none"/>
+        <path data-name="Path 3267" d="M1.5 15h28.264" transform="translate(.5 -1.292)" style="stroke:#9a9a9a;stroke-linecap:round;stroke-linejoin:round;stroke-width:3px;fill:none"/>
+    </g>
+</svg>

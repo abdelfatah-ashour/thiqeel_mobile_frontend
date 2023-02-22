@@ -1,0 +1,26 @@
+{
+	"common": {
+		"first_name": "First Name",
+		"last_name": "Last Name",
+		"middle_name": "Middle name",
+		"mobile_number": "Mobile number",
+		"planning": "Planning",
+		"seller": "Seller",
+		"buyer": "Buyer",
+		"email": "Email",
+		"change_to": "Change to Arabic",
+		"edit_profile": "Edit profile",
+		"personal_info": "Personal info",
+		"profile_summary": "Summary",
+		"account_type": "Account type",
+		"sell_listing": "Sell listing",
+		"profile_categories_of_interest": "Categories of interest",
+		"profile_notification": "Notification",
+		"profile_password_security": "Password & Security",
+		"payment_method": "Payment method (SADAD)",
+		"profile_shipping_address": "Shipping address",
+		"profile_my_watch_list": "My Watchlist",
+		"profile_info_desc": "These details let us know more about you. Also, it will be printed on your invoices and claims.",
+		"update_Profile": "Update Profile"
+	}
+}

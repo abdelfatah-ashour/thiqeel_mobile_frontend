@@ -1,107 +1,164 @@
-/**
- * If you are not familiar with React Navigation, refer to the "Fundamentals" guide:
- * https://reactnavigation.org/docs/getting-started
- *
- */
-import { FontAwesome } from '@expo/vector-icons';
+import * as React from 'react';
+import { ColorSchemeName, StyleSheet, Text, View } from 'react-native';
+import { Feather } from '@expo/vector-icons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer, DefaultTheme, DarkTheme } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import * as React from 'react';
-import { ColorSchemeName, Pressable } from 'react-native';
 
-import Colors from '../constants/Colors';
-import useColorScheme from '../hooks/useColorScheme';
-import ModalScreen from '../screens/ModalScreen';
-import NotFoundScreen from '../screens/NotFoundScreen';
-import TabOneScreen from '../screens/TabOneScreen';
-import TabTwoScreen from '../screens/TabTwoScreen';
-import { RootStackParamList, RootTabParamList, RootTabScreenProps } from '../types';
+import { RootTabParamList } from '../types';
 import LinkingConfiguration from './LinkingConfiguration';
+import { Home } from '../screens/home';
+import { My_Bids } from '../screens/my-bids';
+import { Settings } from '../screens/settings';
+import { My_Wallet } from '../screens/my-wallet';
 
-export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeName }) {
-  return (
-    <NavigationContainer
-      linking={LinkingConfiguration}
-      theme={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <RootNavigator />
-    </NavigationContainer>
-  );
-}
+// import svg
+import AuctionBidIcon from '../assets/images/svg/auction-bid.svg';
+import ProfileIcon from '../assets/images/svg/profile-circle.svg';
+import WalletIcon from '../assets/images/svg/wallet-icon.svg';
+import HomeIcon from '../assets/images/svg/home-icon.svg';
+import { DrawerProfile } from './DrawerProfile';
+import { COLORS } from '../constants/Colors';
 
-/**
- * A root stack navigator is often used for displaying modals on top of all other content.
- * https://reactnavigation.org/docs/modal
- */
-const Stack = createNativeStackNavigator<RootStackParamList>();
-
-function RootNavigator() {
-  return (
-    <Stack.Navigator>
-      <Stack.Screen name="Root" component={BottomTabNavigator} options={{ headerShown: false }} />
-      <Stack.Screen name="NotFound" component={NotFoundScreen} options={{ title: 'Oops!' }} />
-      <Stack.Group screenOptions={{ presentation: 'modal' }}>
-        <Stack.Screen name="Modal" component={ModalScreen} />
-      </Stack.Group>
-    </Stack.Navigator>
-  );
-}
-
-/**
- * A bottom tab navigator displays tab buttons on the bottom of the display to switch screens.
- * https://reactnavigation.org/docs/bottom-tab-navigator
- */
 const BottomTab = createBottomTabNavigator<RootTabParamList>();
+const Stack = createNativeStackNavigator();
 
 function BottomTabNavigator() {
-  const colorScheme = useColorScheme();
-
-  return (
-    <BottomTab.Navigator
-      initialRouteName="TabOne"
-      screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme].tint,
-      }}>
-      <BottomTab.Screen
-        name="TabOne"
-        component={TabOneScreen}
-        options={({ navigation }: RootTabScreenProps<'TabOne'>) => ({
-          title: 'Tab One',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
-          headerRight: () => (
-            <Pressable
-              onPress={() => navigation.navigate('Modal')}
-              style={({ pressed }) => ({
-                opacity: pressed ? 0.5 : 1,
-              })}>
-              <FontAwesome
-                name="info-circle"
-                size={25}
-                color={Colors[colorScheme].text}
-                style={{ marginRight: 15 }}
-              />
-            </Pressable>
-          ),
-        })}
-      />
-      <BottomTab.Screen
-        name="TabTwo"
-        component={TabTwoScreen}
-        options={{
-          title: 'Tab Two',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
-        }}
-      />
-    </BottomTab.Navigator>
-  );
+	return (
+		<BottomTab.Navigator initialRouteName="home" screenOptions={{}}>
+			<BottomTab.Screen
+				name="root_profile"
+				component={DrawerProfile}
+				options={props => {
+					return {
+						headerShown: false,
+						tabBarShowLabel: false,
+						tabBarIcon: () => (
+							<View style={styles.tabButton}>
+								<ProfileIcon name="user" width={32} height={32} stroke={COLORS._border_light_gray} />
+							</View>
+						),
+						tabBarItemStyle: {
+							bottom: props.navigation.isFocused() ? 16 : 0,
+						},
+					};
+				}}
+			/>
+			<BottomTab.Screen
+				name="my_bids"
+				component={My_Bids}
+				options={props => {
+					return {
+						headerShown: false,
+						tabBarShowLabel: false,
+						tabBarIcon: () => (
+							<View style={styles.tabButton}>
+								<AuctionBidIcon width={32} height={32} />
+							</View>
+						),
+						tabBarItemStyle: {
+							bottom: props.navigation.isFocused() ? 16 : 0,
+						},
+					};
+				}}
+			/>
+			<BottomTab.Screen
+				name="home"
+				component={Home}
+				options={props => {
+					return {
+						headerShown: false,
+						tabBarShowLabel: false,
+						tabBarIcon: () => (
+							<View style={styles.tabButton}>
+								<Text>
+									<HomeIcon width={32} height={32} />
+								</Text>
+							</View>
+						),
+						tabBarItemStyle: {
+							bottom: props.navigation.isFocused() ? 16 : 0,
+						},
+					};
+				}}
+			/>
+			<BottomTab.Screen
+				name="my_wallet"
+				component={My_Wallet}
+				options={props => {
+					return {
+						headerShown: false,
+						tabBarShowLabel: false,
+						tabBarIcon: () => {
+							return (
+								<View style={styles.tabButton}>
+									<WalletIcon width={32} height={32} />
+								</View>
+							);
+						},
+						tabBarItemStyle: {
+							bottom: props.navigation.isFocused() ? 16 : 0,
+						},
+					};
+				}}
+			/>
+			<BottomTab.Screen
+				name="settings"
+				component={Settings}
+				options={props => {
+					return {
+						headerShown: false,
+						tabBarShowLabel: false,
+						tabBarIcon: () => (
+							<View style={styles.tabButton}>
+								<Feather name="more-horizontal" size={32} color="black" />
+							</View>
+						),
+						tabBarItemStyle: {
+							bottom: props.navigation.isFocused() ? 16 : 0,
+						},
+					};
+				}}
+			/>
+		</BottomTab.Navigator>
+	);
 }
 
-/**
- * You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
- */
-function TabBarIcon(props: {
-  name: React.ComponentProps<typeof FontAwesome>['name'];
-  color: string;
-}) {
-  return <FontAwesome size={30} style={{ marginBottom: -3 }} {...props} />;
+function MainStack() {
+	return (
+		<Stack.Navigator>
+			<Stack.Screen
+				name="root"
+				component={BottomTabNavigator}
+				options={{
+					headerShown: false,
+				}}
+			/>
+			{/* <Stack.Screen name="profile" component={DrawerProfile} /> */}
+		</Stack.Navigator>
+	);
 }
+
+export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeName }) {
+	return (
+		<NavigationContainer linking={LinkingConfiguration} theme={DefaultTheme}>
+			<MainStack />
+		</NavigationContainer>
+	);
+}
+
+const styles = StyleSheet.create({
+	tabButton: {
+		backgroundColor: '#fff',
+		borderRadius: 50,
+		overflow: 'hidden',
+		padding: 4,
+		width: 48,
+		height: 48,
+		display: 'flex',
+		alignItems: 'center',
+		justifyContent: 'center',
+		shadowColor: '#eee',
+		shadowRadius: 2,
+	},
+});

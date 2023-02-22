@@ -1,0 +1,16 @@
+<svg id="focus-bid-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <g id="Group_4221" data-name="Group 4221" transform="translate(-916 -250)">
+    <g id="Group_4222" data-name="Group 4222" transform="translate(-0.165 -0.165)">
+      <circle id="Ellipse_25" data-name="Ellipse 25" cx="4" cy="4" r="4" transform="translate(924.165 258.165)" fill="#ffb81c"/>
+      <g id="Ellipse_26" data-name="Ellipse 26" transform="translate(921.165 255.165)" fill="none" stroke="#ffb81c" stroke-width="1">
+        <circle cx="7" cy="7" r="7" stroke="none"/>
+        <circle cx="7" cy="7" r="6.5" fill="none"/>
+      </g>
+      <g id="Ellipse_27" data-name="Ellipse 27" transform="translate(918.165 252.165)" fill="none" stroke="#ffb81c" stroke-width="1">
+        <circle cx="10" cy="10" r="10" stroke="none"/>
+        <circle cx="10" cy="10" r="9.5" fill="none"/>
+      </g>
+    </g>
+  </g>
+  <rect id="Rectangle_2543" data-name="Rectangle 2543" width="24" height="24" fill="none"/>
+</svg>

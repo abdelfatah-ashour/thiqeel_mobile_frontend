@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1366" height="272" viewBox="0 0 1366 272">
+    <defs>
+        <linearGradient id="ts8rqea6na" x1=".5" x2=".5" y2="1" gradientUnits="objectBoundingBox">
+            <stop offset="0" stop-opacity="0"/>
+            <stop offset=".522" stop-opacity=".2"/>
+            <stop offset="1" stop-opacity=".4"/>
+        </linearGradient>
+    </defs>
+    <path data-name="Rectangle 2218" style="fill:url(#ts8rqea6na)" d="M0 0h1366v272H0z"/>
+</svg>

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+    <g data-name="Group 4306">
+        <path data-name="Rectangle 2555" style="fill:none" d="M0 0h20v20H0z"/>
+        <g data-name="Icon ionic-ios-done-all">
+            <path data-name="Path 20182" d="M18.6 12.322a.274.274 0 0 0 0-.381l-1.16-1.23a.253.253 0 0 0-.187-.082.253.253 0 0 0-.187.082l-3.9 4.049 1.547 1.588z" style="fill:#9a9a9a" transform="translate(-4.622 -5.375)"/>
+            <path data-name="Path 20183" d="M7.254 14.83a.255.255 0 0 0-.375 0L5.7 16.043a.276.276 0 0 0 0 .387l3.7 3.809a1.141 1.141 0 0 0 .773.387 1.214 1.214 0 0 0 .768-.375l.006-.006.785-.809z" style="fill:#9a9a9a" transform="translate(-4.622 -5.375)"/>
+            <path data-name="Path 20184" d="m24.3 10.688-1.16-1.23a.253.253 0 0 0-.187-.082.253.253 0 0 0-.187.082l-8.074 8.361-2.936-3.023a.255.255 0 0 0-.375 0L10.2 16.008a.276.276 0 0 0 0 .387l3.7 3.805a1.141 1.141 0 0 0 .773.387 1.214 1.214 0 0 0 .768-.375l.006-.006 8.853-9.143a.273.273 0 0 0 0-.375z" style="fill:#9a9a9a" transform="translate(-4.622 -5.375)"/>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <g id="Group_3832" data-name="Group 3832" transform="translate(-136 -426)">
+    <rect id="Rectangle_2225" data-name="Rectangle 2225" width="24" height="24" transform="translate(136 426)" fill="#fff"/>
+    <path id="Icon_ionic-md-lock" data-name="Icon ionic-md-lock" d="M17.083,8.464h-.952v-1.9a4.762,4.762,0,1,0-9.524,0v1.9H5.655a1.91,1.91,0,0,0-1.9,1.9v9.524a1.91,1.91,0,0,0,1.9,1.9H17.083a1.91,1.91,0,0,0,1.9-1.9V10.368A1.91,1.91,0,0,0,17.083,8.464ZM11.369,17.13a1.9,1.9,0,1,1,1.9-1.9A1.91,1.91,0,0,1,11.369,17.13Zm2.952-8.667h-5.9v-1.9a2.952,2.952,0,1,1,5.9,0Z" transform="translate(136.25 426.203)"/>
+  </g>
+</svg>

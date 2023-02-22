@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24.017" height="24" viewBox="0 0 24.017 24">
+    <path data-name="Rectangle 2239" style="fill:none" d="M0 0h24v24H0z"/>
+    <g data-name="Group 4321">
+        <path data-name="Path 20317" d="M-20.963-49.062v16.139h-2" transform="translate(24.359 53.682)" style="stroke-width:2.5px;stroke-linecap:round;stroke-linejoin:round;stroke:#000;fill:none"/>
+        <path data-name="Path 20318" d="M-1-10.546v-6.207a1.739 1.739 0 0 0-1.779-1.127c-1.481-.026-6.4 0-6.4 0s-.728-.145-1.7 1.5-2.5 7.793-2.5 7.793l-.489 5.041V-6.47l.489-1.642h9.258z" transform="translate(21.924 21.892)" style="stroke-width:2.5px;stroke:#000;fill:none"/>
+        <path data-name="Path 20319" d="M-1.4-10.716H.419s1.207-.278 1.54 1.437c-.013.037 0 5.673 0 5.673H-14.1v-4.743h9.057z" style="stroke:#000" transform="translate(21.389 21.957)"/>
+        <g data-name="Ellipse 32" transform="translate(9.017 18.924)" style="fill:#fff;stroke-width:2.5px;stroke:#000">
+            <circle cx="1" cy="1" r="1" style="stroke:none"/>
+            <circle cx="1" cy="1" r="2.25" style="fill:none"/>
+        </g>
+        <g data-name="Ellipse 33" transform="translate(19.517 18.924)" style="fill:#fff;stroke-width:2.5px;stroke:#000">
+            <circle cx="1" cy="1" r="1" style="stroke:none"/>
+            <circle cx="1" cy="1" r="2.25" style="fill:none"/>
+        </g>
+        <path data-name="Path 20320" d="M-13.054-7.4h-4.921" transform="translate(21.389 20.766)" style="stroke-width:2.5px;stroke:#000;fill:none"/>
+        <path data-name="Path 20321" d="M-13.054-7.4h-4.921" transform="translate(21.389 25.766)" style="stroke-width:2.5px;stroke:#000;fill:none"/>
+    </g>
+</svg>
