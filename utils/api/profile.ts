@@ -1,5 +1,5 @@
 import { axios } from '.';
-import { axiosPayloadType } from '../../types';
+import { axiosPayloadType } from '../../Types/authentication';
 
 export function updateProfileAPi(data: axiosPayloadType) {
 	return axios({ method: 'POST', url: '', data: data });

@@ -21,6 +21,9 @@
 		"profile_shipping_address": "Shipping address",
 		"profile_my_watch_list": "My Watchlist",
 		"profile_info_desc": "These details let us know more about you. Also, it will be printed on your invoices and claims.",
-		"update_Profile": "Update Profile"
+		"update_Profile": "Update Profile",
+		"password": "Password",
+		"register": "Register",
+		"login": "Login"
 	}
 }

@@ -21,6 +21,9 @@
 		"profile_shipping_address": "عنوان الشحن",
 		"profile_my_watch_list": "قائمة المتابعه",
 		"profile_info_desc": "تتيح لنا هذه التفاصيل معرفة المزيد عنك. كما سيتم طباعتها على فواتيرك ومطالباتك",
-		"update_Profile": "تحديث الملف الشخصي"
+		"update_Profile": "تحديث الملف الشخصي",
+		"password": "كلمة المرور",
+		"register": "انشاء حساب جديد",
+		"login": "تسجيل الدخول"
 	}
 }

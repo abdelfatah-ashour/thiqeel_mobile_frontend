@@ -1,7 +1,5 @@
 import { StyleSheet, Text, View } from "react-native";
 
-import EditScreenInfo from "../components/EditScreenInfo";
-
 export function My_Bids() {
   return (
     <View style={styles.container}>

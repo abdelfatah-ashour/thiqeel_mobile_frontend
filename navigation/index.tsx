@@ -5,7 +5,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer, DefaultTheme, DarkTheme } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-import { RootTabParamList } from '../types';
+import { RootTabParamList } from '../Types/authentication';
 import LinkingConfiguration from './LinkingConfiguration';
 import { Home } from '../screens/home';
 import { My_Bids } from '../screens/my-bids';
@@ -19,6 +19,8 @@ import WalletIcon from '../assets/images/svg/wallet-icon.svg';
 import HomeIcon from '../assets/images/svg/home-icon.svg';
 import { DrawerProfile } from './DrawerProfile';
 import { COLORS } from '../constants/Colors';
+import { Login } from '../screens/authentication/login';
+import { Register } from '../screens/authentication/register';
 
 const BottomTab = createBottomTabNavigator<RootTabParamList>();
 const Stack = createNativeStackNavigator();
@@ -64,7 +66,7 @@ function BottomTabNavigator() {
 			/>
 			<BottomTab.Screen
 				name="home"
-				component={Home}
+				component={Register}
 				options={props => {
 					return {
 						headerShown: false,

@@ -1,7 +1,6 @@
 import { StyleSheet, Text, View } from "react-native";
 
-import EditScreenInfo from "../components/EditScreenInfo";
-import { RootTabScreenProps } from "../types";
+import { RootTabScreenProps } from "../Types/authentication";
 
 export function My_Wallet({ navigation }: RootTabScreenProps<"my_wallet">) {
   return (
