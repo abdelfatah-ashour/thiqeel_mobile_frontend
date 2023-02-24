@@ -9,10 +9,7 @@ import { COLORS } from "../constants/Colors";
 type AuthenticationLayoutProps = {
   state: authenticateStateType;
   dispatch: (args: DispatchAction) => void;
-  onSubmit: (
-    payload: authenticateStateType,
-    dispatch: (args: DispatchAction) => void,
-  ) => void;
+  children: React.ReactNode;
 };
 
 const ON_TOGGLE_CURRENT_INPUT = "ON_TOGGLE_CURRENT_INPUT";
@@ -22,7 +19,7 @@ const ON_CHANGE = "ON_CHANGE";
 export function AuthenticationLayout({
   state,
   dispatch,
-  onSubmit,
+  children,
 }: AuthenticationLayoutProps) {
   const { t } = useTranslation("common");
 
@@ -44,10 +41,6 @@ export function AuthenticationLayout({
         value,
       },
     });
-  }
-
-  function onAuthenticate() {
-    onSubmit(state, dispatch);
   }
 
   return (
@@ -76,7 +69,7 @@ export function AuthenticationLayout({
             autoComplete={"off"}
           />
           <Text variant="labelLarge" style={styles.message_error}>
-            {state.errors?.email}
+            {t(state.errors?.email || "")}
           </Text>
         </View>
       ) : (
@@ -94,7 +87,7 @@ export function AuthenticationLayout({
             autoComplete={"off"}
           />
           <Text variant="labelLarge" style={styles.message_error}>
-            {state.errors?.phone}
+            {t(state.errors?.phone || "")}
           </Text>
         </View>
       )}
@@ -117,16 +110,10 @@ export function AuthenticationLayout({
         />
 
         <Text variant="labelLarge" style={styles.message_error}>
-          {state.errors?.password}
+          {t(state.errors?.password || "")}
         </Text>
       </View>
-      <View style={styles.wrap_label_and_input}>
-        <PrimaryButton
-          title="login"
-          onPress={onAuthenticate}
-          disabled={state.disabled}
-        />
-      </View>
+      {children}
     </>
   );
 }

@@ -1,30 +1,32 @@
-import { StatusBar } from 'expo-status-bar';
-import { SafeAreaProvider } from 'react-native-safe-area-context';
-import useCachedResources from './hooks/useCachedResources';
-import useColorScheme from './hooks/useColorScheme';
-import Navigation from './navigation';
-import { Text, View } from 'react-native';
+import { StatusBar } from "expo-status-bar";
+import { SafeAreaProvider } from "react-native-safe-area-context";
+import useCachedResources from "./hooks/useCachedResources";
+import useColorScheme from "./hooks/useColorScheme";
+import Navigation from "./navigation";
+import { Text, View } from "react-native";
 
-import 'react-native-gesture-handler';
-import './i18n/i18n';
+import "react-native-gesture-handler";
+import "./i18n/i18n";
+import { Provider } from "react-redux";
+import store from "./store";
 
 export default function App() {
-	const isLoadingComplete = useCachedResources();
-	const colorScheme = useColorScheme();
+  const isLoadingComplete = useCachedResources();
+  const colorScheme = useColorScheme();
 
-	if (!isLoadingComplete) {
-		return (
-			<View>
-				<Text>loading....</Text>
-			</View>
-		);
-	} else {
-		return (
-			<SafeAreaProvider>
-				<Navigation colorScheme={colorScheme} />
+  return (
+    <Provider store={store}>
+      {!isLoadingComplete ? (
+        <View>
+          <Text>loading....</Text>
+        </View>
+      ) : (
+        <SafeAreaProvider>
+          <Navigation colorScheme={colorScheme} />
 
-				<StatusBar />
-			</SafeAreaProvider>
-		);
-	}
+          <StatusBar />
+        </SafeAreaProvider>
+      )}
+    </Provider>
+  );
 }

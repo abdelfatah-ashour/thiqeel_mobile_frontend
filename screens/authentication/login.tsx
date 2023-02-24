@@ -1,16 +1,18 @@
+import { useReducer } from "react";
 import { StyleSheet, View } from "react-native";
+import { useTranslation } from "react-i18next";
+import { CreateErrorOptions } from "yup";
 
 import { SafeArea } from "../../components/SafeArea";
 import { AuthenticationLayout } from "../../components/AuthenticationLayout";
 import { DispatchAction } from "../../Types/shared";
 import { authenticateStateType } from "../../Types/authentication";
-import { authenticateValidation } from "../../utils/validation/authentication";
+import { loginValidation } from "../../utils/validation/authentication";
 import { loginApi } from "../../utils/api/authentication";
 import { StoreToken, StoreUser } from "../../utils/storage";
 import { Text } from "react-native-paper";
-import { useTranslation } from "react-i18next";
-import { useReducer } from "react";
-import { CreateErrorOptions } from "yup";
+import { PrimaryButton } from "../../components/_buttons";
+import { _Typography } from "../../styles/_typography";
 
 // CONSTANT
 const loginState: authenticateStateType = {
@@ -112,7 +114,7 @@ export function Login({ navigation }: { navigation: any }) {
   }
 
   function onLogin() {
-    authenticateValidation(login)
+    loginValidation(login)
       ?.then(() => {
         loginApi({
           type: login.type,
@@ -160,11 +162,40 @@ export function Login({ navigation }: { navigation: any }) {
         <Text variant="displaySmall" style={styles.title}>
           {t("login")}
         </Text>
-        <AuthenticationLayout
-          state={login}
-          dispatch={dispatch}
-          onSubmit={onLogin}
-        />
+        <AuthenticationLayout state={login} dispatch={dispatch}>
+          <View style={styles.wrap_label_and_input}>
+            <PrimaryButton
+              title="login"
+              onPress={onLogin}
+              disabled={login.disabled}
+            />
+          </View>
+
+          <View style={styles.wrap_label_and_input}>
+            <Text
+              onPress={() => {
+                navigation.navigate("register");
+              }}
+              variant="titleMedium"
+              style={{
+                ..._Typography.text_link,
+                textDecorationLine: "underline",
+              }}>
+              {t("dont_have_account")}
+            </Text>
+          </View>
+
+          <View style={{ ...styles.wrap_label_and_input }}>
+            <Text
+              variant="titleMedium"
+              style={{ textDecorationLine: "underline" }}
+              onPress={() => {
+                navigation.navigate("forget-password");
+              }}>
+              {t("forget_password")}
+            </Text>
+          </View>
+        </AuthenticationLayout>
       </View>
     </SafeArea>
   );
@@ -172,12 +203,17 @@ export function Login({ navigation }: { navigation: any }) {
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
     paddingHorizontal: 16,
     paddingVertical: 24,
+    justifyContent: "center",
   },
   title: {
     marginBottom: 24,
     textTransform: "capitalize",
     fontWeight: "700",
+  },
+  wrap_label_and_input: {
+    marginBottom: 16,
   },
 });

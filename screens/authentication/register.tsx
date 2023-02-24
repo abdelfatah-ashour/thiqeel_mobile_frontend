@@ -4,13 +4,15 @@ import { SafeArea } from "../../components/SafeArea";
 import { AuthenticationLayout } from "../../components/AuthenticationLayout";
 import { DispatchAction } from "../../Types/shared";
 import { authenticateStateType } from "../../Types/authentication";
-import { authenticateValidation } from "../../utils/validation/authentication";
+import { registerValidation } from "../../utils/validation/authentication";
 import { registerApi } from "../../utils/api/authentication";
 import { Text } from "react-native-paper";
 import { useTranslation } from "react-i18next";
 import { Modal } from "../../components/modal";
 import { useReducer } from "react";
 import { CreateErrorOptions } from "yup";
+import { PrimaryButton } from "../../components/_buttons";
+import { _Typography } from "../../styles/_typography";
 
 // CONSTANT
 const registerState: authenticateStateType = {
@@ -117,7 +119,7 @@ export function Register({ navigation }: { navigation: any }) {
       type: ON_DISABLED,
       payload: true,
     });
-    authenticateValidation(register)
+    registerValidation(register)
       ?.then(() => {
         registerApi({
           type: register.type,
@@ -167,13 +169,27 @@ export function Register({ navigation }: { navigation: any }) {
     <SafeArea>
       <View style={styles.container}>
         <Text variant="displaySmall" style={styles.title}>
-          {t("register")}
+          {t("create_account")}
         </Text>
-        <AuthenticationLayout
-          onSubmit={onRegister}
-          state={register}
-          dispatch={dispatch}
-        />
+        <AuthenticationLayout state={register} dispatch={dispatch}>
+          <View style={styles.wrap_label_and_input}>
+            <PrimaryButton
+              title="create_account"
+              onPress={onRegister}
+              disabled={register.disabled}
+            />
+          </View>
+          <View style={styles.wrap_label_and_input}>
+            <Text
+              onPress={() => {
+                navigation.navigate("login");
+              }}
+              variant="titleMedium"
+              style={_Typography.text_link}>
+              {t("already_have_account")}
+            </Text>
+          </View>
+        </AuthenticationLayout>
       </View>
       <Modal
         open={register.open}
@@ -189,12 +205,17 @@ export function Register({ navigation }: { navigation: any }) {
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
     paddingHorizontal: 16,
     paddingVertical: 24,
+    justifyContent: "center",
   },
   title: {
     marginBottom: 24,
     textTransform: "capitalize",
     fontWeight: "700",
+  },
+  wrap_label_and_input: {
+    marginBottom: 16,
   },
 });

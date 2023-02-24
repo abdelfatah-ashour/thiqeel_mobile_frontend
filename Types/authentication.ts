@@ -66,7 +66,7 @@ export type axiosResponseType = {
 export type authenticateStateType = {
   phone: string;
   email: string;
-  password: string;
+  password?: string;
   show?: boolean;
   type: "email" | "phone";
   disabled?: boolean;
