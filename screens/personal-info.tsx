@@ -1,118 +1,68 @@
 import { StyleSheet, View } from "react-native";
 
+import { MaterialIcons } from "@expo/vector-icons";
+
 import { SafeAreaProfile } from "../components/SafeAreaProfile";
-import { Button, Checkbox, Text, TextInput } from "react-native-paper";
-import { useTranslation } from "react-i18next";
+import { PrimaryButton } from "../components/_buttons";
+import { Input } from "../components/input";
 
 export function PersonalInfo({ navigation }: any) {
-  const { t } = useTranslation("common");
-
   return (
-    <SafeAreaProfile navigation={navigation}>
-      <View style={styles.container_profile}>
-        <Text variant="displaySmall">{t("personal_info")}</Text>
-        <Text variant="bodyMedium" style={styles.profile_description}>
-          {t("profile_info_desc")}
-        </Text>
+    <SafeAreaProfile
+      SafeAreaProfile={navigation}
+      title={"personal_info"}
+      description={"profile_info_desc"}>
+      <View style={styles.group_input}>
+        <Input
+          label="first_name"
+          value=""
+          onChange={() => {}}
+          error=""
+          tabIndex={"next"}
+        />
+      </View>
+      <View style={styles.group_input}>
+        <Input
+          label="middle_name"
+          value=""
+          onChange={() => {}}
+          error=""
+          tabIndex={"next"}
+        />
+      </View>
+      <View style={styles.group_input}>
+        <Input
+          label="last_name"
+          value=""
+          onChange={() => {}}
+          error=""
+          tabIndex={"next"}
+        />
+      </View>
+      <View style={styles.group_input}>
+        <Input
+          label="email"
+          value=""
+          onChange={() => {}}
+          error=""
+          iconLeft={<MaterialIcons name="email" size={32} tabIndex={"next"} />}
+          tabIndex={"next"}
+          keyboardType="email-address"
+        />
+      </View>
 
-        <View style={{ marginBottom: 16 }}>
-          <Text variant="labelLarge" style={styles.label}>
-            {t("first_name")}
-          </Text>
-          <TextInput
-            // value="123"
-            onChange={text => {}}
-            style={{
-              backgroundColor: "#fff",
-            }}
-          />
-        </View>
-
-        <View style={{ marginBottom: 16 }}>
-          <Text variant="labelLarge" style={styles.label}>
-            {t("middle_name")}
-          </Text>
-          <TextInput
-            // value="123"
-            onChange={text => {}}
-            style={{
-              backgroundColor: "#fff",
-            }}
-          />
-        </View>
-
-        <View style={{ marginBottom: 16 }}>
-          <Text variant="labelLarge" style={styles.label}>
-            {t("last_name")}
-          </Text>
-          <TextInput
-            // value="123"
-            onChange={text => {}}
-            style={{
-              backgroundColor: "#fff",
-            }}
-          />
-        </View>
-
-        <View style={{ marginBottom: 16 }}>
-          <Text variant="labelLarge" style={styles.label}>
-            {t("email")}
-          </Text>
-          <TextInput
-            // value="123"
-            onChange={text => {}}
-            style={{
-              backgroundColor: "#fff",
-            }}
-          />
-        </View>
-
-        <View>
-          <Text variant="labelLarge" style={styles.label}>
-            {t("mobile_number")}
-          </Text>
-          <TextInput
-            // value="123"
-            onChange={text => {}}
-            style={{
-              backgroundColor: "#fff",
-            }}
-          />
-        </View>
-
-        <View>
-          <Text variant="labelLarge" style={styles.label}>
-            {t("planning")}
-          </Text>
-          <View
-            style={{
-              flexDirection: "row",
-            }}>
-            <View>
-              <Checkbox.Item
-                label={t("buyer")}
-                status="checked"
-                labelVariant="labelLarge"
-              />
-            </View>
-
-            <View>
-              <Checkbox.Item
-                label={t("seller")}
-                status="checked"
-                labelVariant="labelLarge"
-              />
-            </View>
-          </View>
-        </View>
-        <View>
-          <Button
-            style={{
-              width: "25%",
-            }}>
-            {t("update_Profile")}
-          </Button>
-        </View>
+      <View style={styles.group_input}>
+        <Input
+          label="mobile_number"
+          // value=""
+          onChange={() => {}}
+          error=""
+          iconLeft={<MaterialIcons name="phone" size={32} />}
+          keyboardType="phone-pad"
+        />
+      </View>
+      <View style={styles.group_input}>
+        <PrimaryButton title="update_profile" onPress={() => {}} />
       </View>
     </SafeAreaProfile>
   );
@@ -120,15 +70,30 @@ export function PersonalInfo({ navigation }: any) {
 
 const styles = StyleSheet.create({
   container_profile: {
-    paddingHorizontal: 10,
-    paddingVertical: 16,
+    padding: 0,
+    margin: 0,
   },
   profile_description: {
     marginVertical: 12,
+  },
+  group_input: {
+    marginBottom: 16,
   },
   label: {
     marginVertical: 6,
     fontWeight: "600",
     textTransform: "capitalize",
+  },
+  page_head: {
+    paddingTop: 30,
+    paddingBottom: 50,
+  },
+  content: {
+    backgroundColor: "#dadada",
+    paddingVertical: 30,
+    paddingHorizontal: 10,
+    borderTopRightRadius: 50,
+    borderTopLeftRadius: 50,
+    marginTop: -50,
   },
 });

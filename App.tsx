@@ -1,18 +1,18 @@
+import { useEffect } from "react";
 import { StatusBar } from "expo-status-bar";
 import { SafeAreaProvider } from "react-native-safe-area-context";
-import useCachedResources from "./hooks/useCachedResources";
-import useColorScheme from "./hooks/useColorScheme";
 import Navigation from "./navigation";
 import { Text, View } from "react-native";
-
 import "react-native-gesture-handler";
-import "./i18n/i18n";
 import { Provider } from "react-redux";
+
+import useCachedResources from "./hooks/useCachedResources";
+import "./i18n/i18n";
+import { CheckAuth } from "./HOC/check-auth";
 import store from "./store";
 
 export default function App() {
   const isLoadingComplete = useCachedResources();
-  const colorScheme = useColorScheme();
 
   return (
     <Provider store={store}>
@@ -22,9 +22,10 @@ export default function App() {
         </View>
       ) : (
         <SafeAreaProvider>
-          <Navigation colorScheme={colorScheme} />
-
-          <StatusBar />
+          <CheckAuth>
+            <Navigation />
+            <StatusBar />
+          </CheckAuth>
         </SafeAreaProvider>
       )}
     </Provider>

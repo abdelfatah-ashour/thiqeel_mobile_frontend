@@ -400,8 +400,6 @@ export function ForgetPassword({ Navigation }: any) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingHorizontal: 16,
-    paddingVertical: 24,
     justifyContent: "center",
   },
   wrap_control: {

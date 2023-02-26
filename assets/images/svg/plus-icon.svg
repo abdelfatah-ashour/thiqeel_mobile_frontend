@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40">
+  <g
+    fill="none"
+    stroke="#fff"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    strokeWidth="2"
+    data-name="Icon feather-plus"
+    transform="translate(13 13)"
+  >
+    <path d="M7 0v14" data-name="Path 19119"></path>
+    <path d="M0 7h14" data-name="Path 19120"></path>
+  </g>
+</svg>

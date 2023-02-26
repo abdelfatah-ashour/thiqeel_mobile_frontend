@@ -1,0 +1,16 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="20"
+  height="20"
+  viewBox="0 0 32 32"
+>
+  <path
+    fill="none"
+    stroke="#9a9a9a"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    strokeWidth="3"
+    d="M11.5 25.5l9-9-9-9"
+    data-name="Icon feather-chevron-right"
+  ></path>
+</svg>

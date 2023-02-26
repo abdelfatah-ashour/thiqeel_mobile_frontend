@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+  <path fill="none" d="M0 0h32v32H0z" data-name="Rectangle 1173"></path>
+  <path
+    fill="#9a9a9a"
+    d="M16 30.25a3.009 3.009 0 003-3h-6a3.009 3.009 0 003 3zm9-9v-7.5c0-4.6-2.445-8.46-6.75-9.48V3.25a2.25 2.25 0 00-4.5 0v1.02C9.46 5.29 7 9.13 7 13.75v7.5l-3 3v1.5h24v-1.5zm-3 1.5H10v-9C10 10.03 12.265 7 16 7s6 3.03 6 6.75z"
+    data-name="Icon material-notifications-none"
+  ></path>
+</svg>

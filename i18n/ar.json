@@ -35,6 +35,11 @@
     "phone_number_is_required": "رثم الجوال مطلوب",
     "phone_number_not_valid": "رقم الجوال غير صحيح",
     "password_not_valid": "كلمة المرور غير صحيحة",
-    "password_is_required": "كلمة المرور مطلوب"
+    "password_is_required": "كلمة المرور مطلوب",
+    "phone": "الجوال",
+    "please_login": "تسجيل الدخول",
+    "thiqeel": "ثقيل",
+    "thiqeel_desc": "أول بائع بالمزاد على الإنترنت للمعدات الثقيلة في المملكة العربية السعودية",
+    "update_profile": "تحديث الملف الشخصي"
   }
 }

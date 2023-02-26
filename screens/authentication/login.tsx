@@ -13,6 +13,8 @@ import { StoreToken, StoreUser } from "../../utils/storage";
 import { Text } from "react-native-paper";
 import { PrimaryButton } from "../../components/_buttons";
 import { _Typography } from "../../styles/_typography";
+import { setToken, setUser } from "../../store/slices/auth";
+import { useDispatch } from "react-redux";
 
 // CONSTANT
 const loginState: authenticateStateType = {
@@ -42,6 +44,7 @@ const ON_RESET = "ON_RESET";
 export function Login({ navigation }: { navigation: any }) {
   const { t } = useTranslation("common");
   const [login, dispatch] = useReducer(registerReducer, loginState);
+  const Dispatch = useDispatch();
 
   function registerReducer(
     state: authenticateStateType,
@@ -129,8 +132,11 @@ export function Login({ navigation }: { navigation: any }) {
               token: "",
             });
 
+            Dispatch(setUser(data));
+            Dispatch(setToken(data?.token));
+
             // redirect
-            navigation.navigate("profile_personal_info");
+            navigation.navigate("home");
           })
           .catch(error => {
             dispatch({
@@ -176,7 +182,7 @@ export function Login({ navigation }: { navigation: any }) {
               onPress={() => {
                 navigation.navigate("register");
               }}
-              variant="titleMedium"
+              variant="titleSmall"
               style={{
                 ..._Typography.text_link,
                 textDecorationLine: "underline",
@@ -187,7 +193,7 @@ export function Login({ navigation }: { navigation: any }) {
 
           <View style={{ ...styles.wrap_label_and_input }}>
             <Text
-              variant="titleMedium"
+              variant="titleSmall"
               style={{ textDecorationLine: "underline" }}
               onPress={() => {
                 navigation.navigate("forget-password");
@@ -204,8 +210,6 @@ export function Login({ navigation }: { navigation: any }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingHorizontal: 16,
-    paddingVertical: 24,
     justifyContent: "center",
   },
   title: {

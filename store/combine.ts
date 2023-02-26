@@ -1,11 +1,6 @@
-import { combineReducers, createSlice } from "@reduxjs/toolkit";
+import { combineReducers } from "@reduxjs/toolkit";
+import authReducer from "./slices/auth";
 
-const helloWorld = createSlice({
-  name: "hello_world",
-  initialState: "Hello world",
-  reducers: {},
-});
-
-export const rootReducer = combineReducers({
-  welcome: helloWorld.reducer,
+export const rootReducer: any = combineReducers({
+  auth: authReducer,
 });

@@ -15,8 +15,8 @@ axiosInstance.interceptors.request.use((config: any) => {
   // if (config.header.locale) {
   // 	config.headers['accept-language'] = config.header.locale;
   // } else {
-  // 	config.headers['accept-language'] = 'en';
   // }
+  config.headers["accept-language"] = "en";
 
   return config;
 });

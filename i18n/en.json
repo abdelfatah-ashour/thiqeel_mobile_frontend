@@ -37,6 +37,14 @@
     "phone_number_is_required": "Phone number is required",
     "phone_number_not_valid": "Phone number not valid",
     "password_not_valid": "Password not valid",
-    "password_is_required": "Password is required"
+    "password_is_required": "Password is required",
+    "phone": "Phone",
+    "go_to_login": "Go to Register",
+    "thiqeel": "Thiqeel",
+    "thiqeel_desc": "The 1st Online Auctioneer for Heavy Equipment is KSA",
+    "terms_condition": "Terms and Privacy",
+    "contact_us": "Contact us",
+    "about_us": "About us",
+    "update_profile": "Update profile"
   }
 }

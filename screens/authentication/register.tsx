@@ -184,7 +184,7 @@ export function Register({ navigation }: { navigation: any }) {
               onPress={() => {
                 navigation.navigate("login");
               }}
-              variant="titleMedium"
+              variant="titleSmall"
               style={_Typography.text_link}>
               {t("already_have_account")}
             </Text>
@@ -206,8 +206,6 @@ export function Register({ navigation }: { navigation: any }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingHorizontal: 16,
-    paddingVertical: 24,
     justifyContent: "center",
   },
   title: {
