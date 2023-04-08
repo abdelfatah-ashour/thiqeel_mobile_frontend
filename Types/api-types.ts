@@ -9,3 +9,13 @@ export type createNewPasswordType = {
   password: string;
   password_confirmation: string;
 };
+
+export type myListingModelType = {
+  coverImage: string;
+  title: string;
+  make: string;
+  year: number;
+  hightestBid: number;
+  soldPrice: number;
+  bidEndsIn: number;
+};

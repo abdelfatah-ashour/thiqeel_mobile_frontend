@@ -1,11 +1,11 @@
 import { useTranslation } from "react-i18next";
 import { StyleSheet, View } from "react-native";
 import { Text, TextInput } from "react-native-paper";
-import { COLORS } from "../constants/Colors";
-import { MaterialIcons } from "@expo/vector-icons";
-import { isRTL } from "../i18n/isRTL";
+import { COLORS } from "../../constants/Colors";
+import { isRTL } from "../../i18n/isRTL";
+import { inputPropsType } from "../../Types/shared";
 
-export function Input(props: any) {
+export function Input(props: inputPropsType) {
   const {
     value,
     onChange,
@@ -14,8 +14,9 @@ export function Input(props: any) {
     iconLeft,
     iconRight,
     autoComplete = "off",
-    keyboardType = "name",
+    keyboardType = "default",
     tabIndex = "done",
+    disabled,
   } = props;
 
   const { t } = useTranslation("common");
@@ -33,7 +34,9 @@ export function Input(props: any) {
         ) : null}
         <TextInput
           value={value}
-          onChange={onChange}
+          onChangeText={text => {
+            onChange(text);
+          }}
           autoCapitalize={"none"}
           autoComplete={autoComplete}
           underlineStyle={{
@@ -42,6 +45,7 @@ export function Input(props: any) {
           keyboardType={keyboardType}
           returnKeyType={tabIndex}
           style={styles(props).input}
+          disabled={disabled}
         />
         {iconRight ? (
           <View style={{ paddingHorizontal: 10 }}>{iconRight}</View>
@@ -73,7 +77,7 @@ const styles = (props: any) =>
       height: 45,
       backgroundColor: COLORS._secondary_light,
       flex: 1,
-      paddingHorizontal: props.iconLeft || props.iconRight ? 0 : 16,
+      paddingHorizontal: props.iconLeft || props.iconRight ? 4 : 16,
     },
     label: {
       marginBottom: 4,

@@ -7,27 +7,31 @@ import "react-native-gesture-handler";
 import { Provider } from "react-redux";
 
 import useCachedResources from "./hooks/useCachedResources";
-import "./i18n/i18n";
 import { CheckAuth } from "./HOC/check-auth";
-import store from "./store";
+import store, { useReduxDispatch } from "./store";
+import { fetchGeneralSettingsApi } from "./utils/api/general";
+import "./i18n/i18n";
+import { GeneralSettings } from "./HOC/general-settings";
 
 export default function App() {
   const isLoadingComplete = useCachedResources();
 
   return (
     <Provider store={store}>
-      {!isLoadingComplete ? (
-        <View>
-          <Text>loading....</Text>
-        </View>
-      ) : (
-        <SafeAreaProvider>
-          <CheckAuth>
-            <Navigation />
-            <StatusBar />
-          </CheckAuth>
-        </SafeAreaProvider>
-      )}
+      <GeneralSettings>
+        {!isLoadingComplete ? (
+          <View>
+            <Text>loading....</Text>
+          </View>
+        ) : (
+          <SafeAreaProvider>
+            <CheckAuth>
+              <Navigation />
+              <StatusBar />
+            </CheckAuth>
+          </SafeAreaProvider>
+        )}
+      </GeneralSettings>
     </Provider>
   );
 }

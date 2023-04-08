@@ -1,11 +1,26 @@
 import { SafeArea } from "./SafeArea";
-import { ScrollView } from "react-native-gesture-handler";
 import { StyleSheet, View } from "react-native";
 import { Text } from "react-native-paper";
 import { useTranslation } from "react-i18next";
 import { _extends } from "../styles/_extends";
+import { RefreshControl, ScrollView } from "react-native-gesture-handler";
 
-export function SafeAreaProfile({ title, description, children }: any) {
+// safe area profile props type
+type SafeAreaProfileProps = {
+  title: string;
+  description: string;
+  children: React.ReactNode;
+  isRefreshing?: boolean;
+  onRefresh?: () => void;
+};
+
+export function SafeAreaProfile({
+  title,
+  description,
+  isRefreshing = false,
+  onRefresh,
+  children,
+}: SafeAreaProfileProps) {
   const { t } = useTranslation("common");
 
   return (
@@ -14,7 +29,10 @@ export function SafeAreaProfile({ title, description, children }: any) {
         showsVerticalScrollIndicator={false}
         style={{
           backgroundColor: "#f8f9fa",
-        }}>
+        }}
+        refreshControl={
+          <RefreshControl refreshing={isRefreshing} onRefresh={onRefresh} />
+        }>
         <View style={styles.container_profile}>
           <View style={styles.page_head}>
             <Text variant="headlineLarge" style={styles.profile_title}>
@@ -24,7 +42,7 @@ export function SafeAreaProfile({ title, description, children }: any) {
               {t(description)}
             </Text>
           </View>
-          <View style={styles.content}>{children}</View>
+          <>{children}</>
           <View style={styles.footer}></View>
         </View>
       </ScrollView>
@@ -45,8 +63,8 @@ const styles = StyleSheet.create({
     marginBottom: 24,
   },
   page_head: {
-    paddingTop: 30,
-    paddingBottom: 50,
+    paddingTop: 55,
+    paddingBottom: 27.5,
     paddingHorizontal: _extends.paddingHorizontalPages,
   },
   content: {

@@ -78,3 +78,11 @@ export type authenticateStateType = {
   };
   onError?: string;
 };
+
+// axios response model type
+export type AxiosResponseModelType = {
+  status?: number;
+  message?: string;
+  data?: { [key: string]: any } | null;
+  errors?: { [key: string]: any } | null;
+};

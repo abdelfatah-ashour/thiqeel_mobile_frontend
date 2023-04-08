@@ -3,7 +3,7 @@ import { StyleSheet, View } from "react-native";
 import ModalNative from "react-native-modal";
 
 import { ModalPropsType } from "../Types/shared";
-import { Button, Text } from "react-native-paper";
+import { Text } from "react-native-paper";
 import { COLORS } from "../constants/Colors";
 import { useTranslation } from "react-i18next";
 import { PrimaryButton } from "./_buttons";

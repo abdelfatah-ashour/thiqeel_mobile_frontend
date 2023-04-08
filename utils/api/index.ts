@@ -8,14 +8,11 @@ const axiosInstance: any = Axios.create({
   withCredentials: false,
 });
 
-axiosInstance.interceptors.request.use((config: any) => {
-  getToken().then(token => {
-    config.headers.Authorization = `Bearer ${token}`;
+axiosInstance.interceptors.request.use(async (config: any) => {
+  await getToken().then(token => {
+    config.headers.Authorization = `Bearer ${JSON.parse(token || "")}`;
   });
-  // if (config.header.locale) {
-  // 	config.headers['accept-language'] = config.header.locale;
-  // } else {
-  // }
+
   config.headers["accept-language"] = "en";
 
   return config;
@@ -23,14 +20,6 @@ axiosInstance.interceptors.request.use((config: any) => {
 
 axiosInstance.interceptors.response.use(
   (response: AxiosResponse) => {
-    console.log(
-      new AxiosResponseModel(
-        response.status,
-        response.data.message,
-        response.data.data,
-        null,
-      ),
-    );
     return Promise.resolve(
       new AxiosResponseModel(
         response.status,
@@ -75,9 +64,5 @@ export const axios: (args?: axiosArgsType) => Promise<axiosResponseType> =
       method: args?.method || "GET",
       url: args?.url,
       data: args?.data,
-      headers: {
-        Authorization: args?.headers?.Authorization,
-        "accept-language": args?.headers?.locale,
-      },
     });
   };
