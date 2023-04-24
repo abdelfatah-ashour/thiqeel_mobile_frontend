@@ -1,5 +1,5 @@
 import React, { useReducer } from "react";
-import { StyleSheet, View, ScrollView } from "react-native";
+import { StyleSheet, View } from "react-native";
 import { Button, Text, TextInput } from "react-native-paper";
 import { SafeArea } from "../../components/SafeArea";
 import { useTranslation } from "react-i18next";
@@ -178,11 +178,28 @@ export function ForgetPassword({ Navigation }: any) {
     onDisabled(true);
     forgetPasswordValidator(forgetPassword)
       ?.then(() => {
-        forgetPasswordApi(forgetPassword)
+        let data: { [ket: string]: string } = {
+          type: forgetPassword.type,
+        };
+
+        if (forgetPassword.type === "email") {
+          data = {
+            ...data,
+            email: forgetPassword.email,
+          };
+        } else {
+          data = {
+            ...data,
+            phone: forgetPassword.phone,
+          };
+        }
+        forgetPasswordApi(data)
           .then(() => {
             onDisplayInputCode(true);
           })
           .catch(error => {
+            console.log(error);
+
             dispatch({
               type: ON_ERROR,
               payload: error.message,
@@ -319,6 +336,7 @@ export function ForgetPassword({ Navigation }: any) {
                   onChangeText={value => onChange("email", value)}
                   keyboardType="email-address"
                   autoComplete={"off"}
+                  autoCapitalize={"none"}
                 />
                 <Text variant="labelLarge" style={styles.message_error}>
                   {t(forgetPassword.errors?.email)}
@@ -335,6 +353,7 @@ export function ForgetPassword({ Navigation }: any) {
                   }}
                   keyboardType="phone-pad"
                   autoComplete={"off"}
+                  autoCapitalize={"none"}
                 />
                 <Text variant="labelLarge" style={styles.message_error}>
                   {t(forgetPassword.errors?.phone)}

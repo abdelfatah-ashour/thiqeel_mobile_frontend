@@ -86,10 +86,6 @@ export function forgetPasswordValidator(payload: authenticateStateType) {
 }
 
 export function createNewPasswordValidator(payload: { new_password: string }) {
-  console.log(
-    "🚀 ~ file: authentication.ts:89 ~ createNewPasswordValidator ~ payload:",
-    payload,
-  );
   let schemaValidate = yup.object({
     new_password: yup
       .string()
@@ -99,5 +95,21 @@ export function createNewPasswordValidator(payload: { new_password: string }) {
 
   return schemaValidate?.validate(payload, {
     abortEarly: false,
+  });
+}
+
+export function validatePassword(password: string, confirmPassword: string) {
+  return new Promise((resolve, reject) => {
+    if (
+      password === confirmPassword &&
+      PATTERN_PASSWORD_REGISTER.test(password)
+    ) {
+      resolve({
+        password,
+        confirmPassword,
+      });
+    } else {
+      reject("password_not_valid");
+    }
   });
 }

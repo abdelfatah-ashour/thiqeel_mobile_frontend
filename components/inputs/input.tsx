@@ -1,9 +1,11 @@
 import { useTranslation } from "react-i18next";
 import { StyleSheet, View } from "react-native";
-import { Text, TextInput } from "react-native-paper";
+import { TextInput } from "react-native-paper";
 import { COLORS } from "../../constants/Colors";
 import { isRTL } from "../../i18n/isRTL";
-import { inputPropsType } from "../../Types/shared";
+import { Heading, inputPropsType } from "../../Types/shared";
+import { utilStyles } from "../../utils/config";
+import { Text } from "../typography/Text";
 
 export function Input(props: inputPropsType) {
   const {
@@ -17,6 +19,7 @@ export function Input(props: inputPropsType) {
     keyboardType = "default",
     tabIndex = "done",
     disabled,
+    secureTextEntry = false,
   } = props;
 
   const { t } = useTranslation("common");
@@ -24,9 +27,11 @@ export function Input(props: inputPropsType) {
   return (
     <View>
       {label ? (
-        <Text variant="titleMedium" style={styles(props).label}>
-          {t(label)}
-        </Text>
+        <Text
+          variant={Heading.label}
+          style={styles(props).label}
+          text={t(label)}
+        />
       ) : null}
       <View style={styles(props).box_input}>
         {iconLeft ? (
@@ -46,6 +51,7 @@ export function Input(props: inputPropsType) {
           returnKeyType={tabIndex}
           style={styles(props).input}
           disabled={disabled}
+          secureTextEntry={secureTextEntry}
         />
         {iconRight ? (
           <View style={{ paddingHorizontal: 10 }}>{iconRight}</View>
@@ -53,9 +59,7 @@ export function Input(props: inputPropsType) {
       </View>
 
       {error ? (
-        <Text variant="bodySmall" style={styles(props).error}>
-          {error}
-        </Text>
+        <Text variant={Heading.span} style={styles(props).error} text={error} />
       ) : null}
     </View>
   );
@@ -74,18 +78,18 @@ const styles = (props: any) =>
       direction: isRTL() ? "ltr" : "inherit",
     },
     input: {
-      height: 45,
+      height: utilStyles.dimension.heightInput,
       backgroundColor: COLORS._secondary_light,
       flex: 1,
-      paddingHorizontal: props.iconLeft || props.iconRight ? 4 : 16,
+      paddingHorizontal: props.iconLeft || props.iconRight ? 8 : 16,
     },
     label: {
-      marginBottom: 4,
+      marginBottom: utilStyles.spacing._x2,
       textTransform: "capitalize",
       color: COLORS._Menu_text,
     },
     error: {
       color: COLORS._error_color,
-      padding: 4,
+      padding: utilStyles.spacing._x1,
     },
   });

@@ -81,6 +81,21 @@
     "pm": "PM",
     "am": "AM",
     "join_bid": "Join bid",
-    "buy_now": "Buy now"
+    "buy_now": "Buy now",
+    "Categories_of_interesting": "Categories of interest",
+    "Categories_of_interesting_desc": "Choose the categories you are interested in to get notified when new auctions are listed.",
+    "notification_title": "Notification",
+    "notification_desc": "Mange how do you need to get notified by Thiqeel.",
+    "mobile_sms": "Mobile SMS",
+    "email_address": "Email address",
+    "system_notification": "System notification",
+    "password_security_title": "Password & Security",
+    "password_security_desc": "Manage your login credentials anytime to protect your account and be safe.",
+    "change_password_title": "Change password",
+    "change_password_desc": "Change your password to protect your account and be safe.",
+    "shipping_address_title": "Shipping address",
+    "shipping_address_desc": "Add your address that will be used for delivery. By default we use your billing details as your shipping address. You can add more than one address for different locations to ship your equipment to.",
+    "same_billing_address": "Same billing address",
+    "all_your_listings": "All your listings"
   }
 }

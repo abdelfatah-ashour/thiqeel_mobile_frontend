@@ -6,11 +6,23 @@ import { getToken } from "../storage";
 const axiosInstance: any = Axios.create({
   baseURL: "https://admin.beta2.thiqeel.com/api/v1",
   withCredentials: false,
+  transformRequest: [
+    function (data) {
+      // Do whatever you want to transform the data
+      let payload = new FormData();
+      for (let key in data) {
+        payload.append(key, data[key]);
+      }
+      return payload;
+    },
+  ],
 });
 
 axiosInstance.interceptors.request.use(async (config: any) => {
   await getToken().then(token => {
-    config.headers.Authorization = `Bearer ${JSON.parse(token || "")}`;
+    if (token) {
+      config.headers.Authorization = `Bearer ${JSON.parse(token || "")}`;
+    }
   });
 
   config.headers["accept-language"] = "en";
@@ -31,6 +43,7 @@ axiosInstance.interceptors.response.use(
   },
   (error: AxiosError<any>) => {
     let response = new AxiosResponseModel();
+
     if (error.response) {
       response = new AxiosResponseModel(
         error.response.status,
@@ -53,7 +66,6 @@ axiosInstance.interceptors.response.use(
         null,
       );
     }
-    console.log("ERROR ", response);
     return Promise.reject(response);
   },
 );

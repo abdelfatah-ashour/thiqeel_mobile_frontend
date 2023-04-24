@@ -1,9 +1,10 @@
 import { SafeArea } from "./SafeArea";
 import { StyleSheet, View } from "react-native";
-import { Text } from "react-native-paper";
 import { useTranslation } from "react-i18next";
 import { _extends } from "../styles/_extends";
 import { RefreshControl, ScrollView } from "react-native-gesture-handler";
+import { Text } from "./typography/Text";
+import { Heading } from "../Types/shared";
 
 // safe area profile props type
 type SafeAreaProfileProps = {
@@ -35,12 +36,16 @@ export function SafeAreaProfile({
         }>
         <View style={styles.container_profile}>
           <View style={styles.page_head}>
-            <Text variant="headlineLarge" style={styles.profile_title}>
-              {t(title)}
-            </Text>
-            <Text variant="labelMedium" style={styles.profile_description}>
-              {t(description)}
-            </Text>
+            <Text
+              variant={Heading.h1}
+              style={styles.profile_title}
+              text={t(title)}
+            />
+            <Text
+              variant={Heading.span}
+              style={styles.profile_description}
+              text={t(description)}
+            />
           </View>
           <>{children}</>
           <View style={styles.footer}></View>
@@ -56,11 +61,12 @@ const styles = StyleSheet.create({
     margin: 0,
   },
   profile_title: {
-    fontWeight: "700",
+    fontWeight: "900",
     paddingBottom: 8,
   },
   profile_description: {
     marginBottom: 24,
+    lineHeight: 24,
   },
   page_head: {
     paddingTop: 55,

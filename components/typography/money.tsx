@@ -1,7 +1,9 @@
 import { View } from "react-native";
-import { Text } from "react-native-paper";
 import { formatMoney } from "../../utils/utilites";
 import { useTranslation } from "react-i18next";
+import { utilStyles } from "../../utils/config";
+import { Text } from "./Text";
+import { Heading } from "../../Types/shared";
 
 export function Money({ money }: { money: number }) {
   const { t } = useTranslation("common");
@@ -13,20 +15,21 @@ export function Money({ money }: { money: number }) {
         alignItems: "flex-end",
       }}>
       <Text
-        variant="bodyLarge"
+        variant={Heading.h4}
         style={{
-          fontSize: 20,
+          fontSize: utilStyles.spacing._x6,
           fontWeight: "bold",
-        }}>
-        {formatMoney(money)}
-      </Text>
+        }}
+        text={formatMoney(money)}
+      />
+
       <Text
-        variant="bodySmall"
+        variant={Heading.h6}
         style={{
-          marginHorizontal: 4,
-        }}>
-        {t("sar")}
-      </Text>
+          marginHorizontal: utilStyles.spacing._x1,
+        }}
+        text={t("sar")}
+      />
     </View>
   );
 }

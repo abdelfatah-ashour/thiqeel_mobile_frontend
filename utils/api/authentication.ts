@@ -18,7 +18,8 @@ export function registerApi(data: authenticateStateType) {
   });
 }
 
-export function forgetPasswordApi(data: authenticateStateType) {
+export function forgetPasswordApi(data: { [key: string]: string }) {
+  console.log(data);
   return axios({
     method: "POST",
     url: "/send-otp",

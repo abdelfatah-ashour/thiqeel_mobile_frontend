@@ -1,13 +1,14 @@
 import { Image, StyleSheet, View } from "react-native";
-import { Text } from "react-native-paper";
 import { COLORS } from "../../constants/Colors";
 import { useTranslation } from "react-i18next";
-import { formatDate, formatMoney } from "../../utils/utilites";
+import { formatDate } from "../../utils/utilites";
 import { Money } from "../typography/money";
 import { ButtonJoinBid } from "../buttons/join-bid";
 import { ButtonBuyNow } from "../buttons/buy-now";
 import { _extends } from "../../styles/_extends";
 import { myListingModelType } from "../../Types/api-types";
+import { Heading } from "../../Types/shared";
+import { Text } from "../typography/Text";
 
 export function CardAuction({
   coverImage,
@@ -31,16 +32,19 @@ export function CardAuction({
         />
       </View>
       <View>
-        <Text variant="titleLarge" style={styles.card_title}>
-          {title}
-        </Text>
-        <Text variant="bodyMedium" style={styles.card_sub_title}>
-          {make} - {year}
-        </Text>
+        <Text variant={Heading.h3} style={styles.card_title} text={title} />
+        <Text
+          variant={Heading.h6}
+          style={styles.card_sub_title}
+          text={`${make} - ${year}`}
+        />
         <View style={{ marginVertical: 12 }}>
-          <Text variant="titleSmall" style={styles.card_hightest_bid}>
-            {t("hightest_bid")}
-          </Text>
+          <Text
+            variant={Heading.h6}
+            style={styles.card_hightest_bid}
+            text={t("hightest_bid")}
+          />
+
           <View
             style={{
               marginVertical: 4,
@@ -49,17 +53,21 @@ export function CardAuction({
           </View>
         </View>
         <View style={{ marginVertical: 12 }}>
-          <Text variant="titleSmall" style={styles.card_hightest_bid}>
-            {t("sold_price")}
-          </Text>
+          <Text
+            variant={Heading.p}
+            style={styles.card_hightest_bid}
+            text={t("sold_price")}
+          />
           <Money money={soldPrice} />
         </View>
 
         <View>
-          <Text variant="titleSmall" style={styles.card_hightest_bid}>
-            {t("bid_ends_in")}
-          </Text>
-          <Text variant="bodyLarge">{formatDate(bidEndsIn, true, t)}</Text>
+          <Text
+            variant={Heading.h6}
+            style={styles.card_hightest_bid}
+            text={t("bid_ends_in")}
+          />
+          <Text variant={Heading.h6} text={formatDate(bidEndsIn, true, t)} />
         </View>
         <View
           style={{

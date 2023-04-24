@@ -46,6 +46,7 @@ export type inputPropsType = {
   keyboardType?: KeyboardTypeOptions;
   tabIndex?: ReturnKeyTypeOptions;
   disabled?: boolean;
+  secureTextEntry?: boolean;
 };
 
 export enum showMessageStatusType {
@@ -58,3 +59,15 @@ export type showMessagePropsType = {
   message: string;
   setVisibility: (visibility: boolean) => void;
 };
+
+export enum Heading {
+  h1 = "h1",
+  h2 = "h2",
+  h3 = "h3",
+  h4 = "h4",
+  h5 = "h5",
+  h6 = "h6",
+  p = "p",
+  span = "span",
+  label = "label",
+}
