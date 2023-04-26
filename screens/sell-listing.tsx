@@ -1,12 +1,12 @@
-import { Alert, StyleSheet, Text, View } from "react-native";
+import React, { useState } from "react";
+import { StyleSheet, Text, View } from "react-native";
+
 import { SafeAreaProfile } from "../components/SafeAreaProfile";
 import { CardAuction } from "../components/cards/card-auction";
 import { Input } from "../components/inputs/input";
 import SearchIcon from "../assets/images/svg/search-gray-icon.svg";
 import { _extends } from "../styles/_extends";
 import { useFetchData } from "../hooks/useFetchData";
-import { Button, DataTable } from "react-native-paper";
-import React, { useEffect, useState } from "react";
 import { useAlert } from "../hooks/useAlert";
 import { showMessageStatusType } from "../Types/shared";
 import { Modal } from "../components/modal";
@@ -15,9 +15,6 @@ import { Pagination } from "../components/pagination";
 export function SellListing() {
   const [page, setPage] = useState(1);
   const { message, visibility, showMessage } = useAlert();
-
-  const from = (page - 1) * 6;
-  const to = page * 6;
 
   const { loading, error, data, setData } = useFetchData({
     url: `/profile/my-auctions?perpage=6&page=${page}`,
@@ -55,13 +52,17 @@ export function SellListing() {
                   soldPrice={item.highest_bid}
                   bidEndsIn={item.end_time}
                   coverImage={item.image}
+                  isControlSeller
                 />
               </React.Fragment>
             ))}
             <Pagination
-              page={page}
-              onPageChange={num => setPage(num)}
-              total={data?.meta.total}
+              page={data?.meta?.current_page}
+              total={data?.meta?.total}
+              onPageChange={function (page: number): void {
+                // throw new Error("Function not implemented.");
+                setPage(page);
+              }}
             />
           </>
         ) : null}

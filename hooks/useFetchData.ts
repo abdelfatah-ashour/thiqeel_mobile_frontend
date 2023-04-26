@@ -24,10 +24,6 @@ export function useFetchData({ url }: { url: string }) {
         setMessage(message);
       })
       .catch(({ message }) => {
-        console.log(
-          "🚀 > file: useFetchData.ts:28 > useEffect > message : ",
-          message,
-        );
         setError(message);
         setLoading(false);
         setMessage(message);

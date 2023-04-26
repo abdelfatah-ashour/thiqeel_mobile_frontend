@@ -12,10 +12,10 @@ import { utilStyles } from "../utils/config";
 export function ShippingAddress() {
   const { t } = useTranslation("common");
   const store = useReduxSelector(s => s);
+
   const { loading, error, data, setData } = useFetchData({
     url: "/addresses",
   });
-  console.log(JSON.stringify(store.auth, null, 2));
 
   return (
     <SafeAreaProfile

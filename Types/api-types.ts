@@ -18,4 +18,6 @@ export type myListingModelType = {
   hightestBid: number;
   soldPrice: number;
   bidEndsIn: number;
+  isControlSeller?: boolean;
+  isControlBuyer?: boolean;
 };

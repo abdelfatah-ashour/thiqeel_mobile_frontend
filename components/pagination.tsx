@@ -10,23 +10,23 @@ type PaginationProps = {
 export function Pagination({ page, total, onPageChange }: PaginationProps) {
   const meta = useMemo(() => {
     return {
-      from: (page - 1) * 6,
-      to: page * 6,
+      from: page * 6,
+      to: Math.min((page + 1) * 6, total),
       total: total,
     };
-  }, []);
+  }, [total, page]);
 
   return (
-    <DataTable.Pagination
-      page={page}
-      numberOfPages={Math.floor(meta.total / 6)}
-      onPageChange={p => {
-        if (!p) {
-          return;
-        }
-        onPageChange(p);
-      }}
-      label={`${meta.from + 1}-${meta.to} of ${meta.total}`}
-    />
+    <DataTable>
+      <DataTable.Pagination
+        page={page}
+        numberOfPages={meta.total}
+        onPageChange={page => {
+          // console.log("page", page);
+          onPageChange(page);
+        }}
+        label={`${meta.from + 1}-${meta.to} of ${meta.total}`}
+      />
+    </DataTable>
   );
 }
